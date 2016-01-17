@@ -5,6 +5,8 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var MongoClient = require('mongodb').MongoClient;
+var assert = require('assert');
 
 // require all needed .js
 var routes = require('./routes/index');
@@ -39,6 +41,14 @@ app.use(function(req, res, next) {
   err.status = 404;
   next(err);
 });
+
+var url = 'mongodb://localhost:27017/blog';
+MongoClient.connect(url, function(err, db) {
+  assert.equal(null, err);
+  console.log("Connected correctly to mongoDB server.");
+  db.close();
+});
+
 
 // error handlers
 
