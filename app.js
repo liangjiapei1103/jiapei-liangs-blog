@@ -42,12 +42,12 @@ app.use(function(req, res, next) {
   next(err);
 });
 
-var url = 'mongodb://localhost:27017/blog';
-MongoClient.connect(url, function(err, db) {
-  assert.equal(null, err);
-  console.log("Connected correctly to mongoDB server.");
-  db.close();
-});
+// var url = 'mongodb://localhost:27017/blog';
+// MongoClient.connect(url, function(err, db) {
+//   assert.equal(null, err);
+//   console.log("Connected correctly to mongoDB server.");
+//   db.close();
+// });
 
 
 // error handlers
