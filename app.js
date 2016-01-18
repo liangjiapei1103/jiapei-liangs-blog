@@ -7,6 +7,9 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var MongoClient = require('mongodb').MongoClient;
 var assert = require('assert');
+var session = require('express-session');
+var MongoStore = require('connect-mongo')(session);
+
 
 // require all needed .js
 var routes = require('./routes/index');
