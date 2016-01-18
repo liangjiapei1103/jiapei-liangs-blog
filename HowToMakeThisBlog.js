@@ -79,11 +79,15 @@
 	</body>
 	</html>
 
-5. edit index.ejs in viems folder 
+7. edit index.ejs in viems folder 
 
 	<%- include header %>
 	这是主页
 	<%- include footer %>
+
+8. add session and mongoose
+
+9. add login.ejs and register.ejs
 
 
 

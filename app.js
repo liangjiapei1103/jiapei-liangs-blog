@@ -10,6 +10,7 @@ var assert = require('assert');
 var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
 var mongoose = require('mongoose');
+var flash = require('connect-flash');
 
 
 // require all needed .js
@@ -36,6 +37,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 // set the folder 'public' to store static files
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(flash());
 
 app.use('/', routes);
 app.use('/users', users);
