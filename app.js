@@ -14,6 +14,7 @@ var MongoStore = require('connect-mongo')(session);
 // require all needed .js
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var settings = require('./settings');
 
 // create an instance of express
 var app = express();
@@ -77,6 +78,14 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
+
+
+// use session
+app.use(express.session({
+  secret: settings.cookieSecret,
+  cookie: {maxAge: 1000 * 60 * 60 * 24 * 30}, // 30 days
+  url: settings.url
+}));
 
 // exports app to let other module to use
 module.exports = app;
