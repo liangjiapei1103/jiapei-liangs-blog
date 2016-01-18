@@ -9,6 +9,7 @@ var MongoClient = require('mongodb').MongoClient;
 var assert = require('assert');
 var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
+var mongoose = require('mongoose');
 
 
 // require all needed .js
@@ -48,12 +49,15 @@ app.use(function(req, res, next) {
 
 
 var url = 'mongodb://liangjiapei1103:12345678@ds047075.mongolab.com:47075/heroku_bp27wbjt';
-MongoClient.connect(url, function(err, db) {
-  assert.equal(null, err);
-  console.log("Connected correctly to mongoDB server.");
-  db.close();
+// MongoClient.connect(url, function(err, db) {
+//   assert.equal(null, err);
+//   console.log("Connected correctly to mongoDB server.");
+//   db.close();
+// });
+mongoose.connect(url, function (error) {
+  if (error) console.error(error);
+  else console.log('mongo connected');
 });
-
 
 // error handlers
 
@@ -80,12 +84,12 @@ app.use(function(err, req, res, next) {
 });
 
 
-// use session
-app.use(express.session({
-  secret: settings.cookieSecret,
-  cookie: {maxAge: 1000 * 60 * 60 * 24 * 30}, // 30 days
-  url: settings.url
-}));
+// // use session
+// app.use(express.session({
+//   secret: settings.cookieSecret,
+//   cookie: {maxAge: 1000 * 60 * 60 * 24 * 30}, // 30 days
+//   url: settings.url
+// }));
 
 // exports app to let other module to use
 module.exports = app;
