@@ -84,12 +84,14 @@ app.use(function(err, req, res, next) {
 });
 
 
-// // use session
-// app.use(express.session({
-//   secret: settings.cookieSecret,
-//   cookie: {maxAge: 1000 * 60 * 60 * 24 * 30}, // 30 days
-//   url: settings.url
-// }));
+app.use(session({
+  secret: settings.cookieSecret,
+  key: settings.db, //cookie name
+  cookie: {maxAge: 1000 * 60 * 60 * 24 * 30}, //30 days
+  resave: true,
+  saveUninitialized: true,
+  store: new MongoStore({ url: url })
+}));
 
 // exports app to let other module to use
 module.exports = app;
