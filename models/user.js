@@ -1,5 +1,5 @@
 var crypto = require('crypto');
-var monngose = require('mongoose');
+var mongoose = require('mongoose');
 var url = 'mongodb://liangjiapei1103:12345678@ds047075.mongolab.com:47075/heroku_bp27wbjt';
 mongoose.connect(url, function (error) {
   if (error) console.error(error);
@@ -28,9 +28,9 @@ User.prototype.save = function(callback) {
 	// 	email_MD5 = md5.update(this.email.toLowerCase()).digest('hex'),
 	// 	head = "http://www.gravatar.com/avatar/" + email_MD5 + "?s=48";
 	var user = {
-		name = this.name;
-		this.password = user.password;
-		this.email = user.email;
+		name: this.name,
+		password: user.password,
+		email: user.email
 	};
 
 	var newUser = new userModel(user);

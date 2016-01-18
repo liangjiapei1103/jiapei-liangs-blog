@@ -89,6 +89,10 @@
 
 9. add login.ejs and register.ejs
 
+10. require connect-flash in app.js and app.use(flash());
+
+
+
 
 
 	

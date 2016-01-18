@@ -1,5 +1,5 @@
-var express = require('express');
-var router = express.Router();
+// var express = require('express');
+// var router = express.Router();
 
 var crypto = require('crypto'),
 	User = require('../models/user.js');
@@ -29,4 +29,4 @@ module.exports = function(app) {
 
 
 
-module.exports = router;
+// module.exports = router;
