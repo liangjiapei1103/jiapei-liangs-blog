@@ -87,12 +87,10 @@ app.use(function(err, req, res, next) {
 
 
 app.use(session({
-  secret: settings.cookieSecret,
-  key: settings.db, //cookie name
   cookie: {maxAge: 1000 * 60 * 60 * 24 * 30}, //30 days
   resave: true,
   saveUninitialized: true,
-  store: new MongoStore({ url: url })
+  store: new MongoStore({ mongooseConnection: mongoose.connection })
 }));
 
 // exports app to let other module to use
