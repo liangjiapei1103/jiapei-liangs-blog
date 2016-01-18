@@ -1,10 +1,10 @@
 var crypto = require('crypto');
 var mongoose = require('mongoose');
 var url = 'mongodb://liangjiapei1103:12345678@ds047075.mongolab.com:47075/heroku_bp27wbjt';
-mongoose.connect(url, function (error) {
-  if (error) console.error(error);
-  else console.log('mongo connected');
-});
+// mongoose.connect(url, function (error) {
+//   if (error) console.error(error);
+//   else console.log('mongo connected');
+// });
 
 var userSchema = new mongoose.Schema({
 	name: String,
