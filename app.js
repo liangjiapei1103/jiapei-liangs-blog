@@ -51,15 +51,15 @@ app.use(function(req, res, next) {
 
 
 var url = 'mongodb://liangjiapei1103:12345678@ds047075.mongolab.com:47075/heroku_bp27wbjt';
-// MongoClient.connect(url, function(err, db) {
-//   assert.equal(null, err);
-//   console.log("Connected correctly to mongoDB server.");
-//   db.close();
-// });
-mongoose.connect(url, function (error) {
-  if (error) console.error(error);
-  else console.log('mongo connected');
+MongoClient.connect(url, function(err, db) {
+  assert.equal(null, err);
+  console.log("Connected correctly to mongoDB server.");
+  db.close();
 });
+// mongoose.connect(url, function (error) {
+//   if (error) console.error(error);
+//   else console.log('mongo connected');
+// });
 
 // error handlers
 
@@ -86,12 +86,12 @@ app.use(function(err, req, res, next) {
 });
 
 
-app.use(session({
-  cookie: {maxAge: 1000 * 60 * 60 * 24 * 30}, //30 days
-  resave: true,
-  saveUninitialized: true,
-  store: new MongoStore({ mongooseConnection: mongoose.connection })
-}));
+// app.use(session({
+//   cookie: {maxAge: 1000 * 60 * 60 * 24 * 30}, //30 days
+//   resave: true,
+//   saveUninitialized: true,
+//   store: new MongoStore({ mongooseConnection: mongoose.connection })
+// }));
 
 // exports app to let other module to use
 module.exports = app;
